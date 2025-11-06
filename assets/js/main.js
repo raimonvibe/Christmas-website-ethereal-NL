@@ -789,8 +789,9 @@
 			}
 		}
 
-	// Add snowflake effect to buttons.
+	// Add snowflake effect to buttons and social icons.
 		$window.on('load', function() {
+			// Add to all buttons
 			$('.button').each(function() {
 				var $button = $(this);
 
@@ -801,6 +802,36 @@
 
 				// Add mouseenter event for snowflakes
 				$button.on('mouseenter', function() {
+					createMultipleSnowflakes(this);
+				});
+			});
+
+			// Add to submit button specifically
+			$('input[type="submit"]').each(function() {
+				var $submit = $(this);
+
+				// Make position relative if not already positioned
+				if ($submit.css('position') === 'static') {
+					$submit.css('position', 'relative');
+				}
+
+				// Add mouseenter event for snowflakes
+				$submit.on('mouseenter', function() {
+					createMultipleSnowflakes(this);
+				});
+			});
+
+			// Add to social icons
+			$('.contact-icons li').each(function() {
+				var $icon = $(this);
+
+				// Make position relative if not already positioned
+				if ($icon.css('position') === 'static') {
+					$icon.css('position', 'relative');
+				}
+
+				// Add mouseenter event for snowflakes
+				$icon.on('mouseenter', function() {
 					createMultipleSnowflakes(this);
 				});
 			});

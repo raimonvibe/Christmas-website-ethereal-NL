@@ -3763,6 +3763,14 @@ input, select, textarea {
 		-ms-user-select: none;
 	}
 
+	.contact-icons li {
+		overflow: visible;
+	}
+
+	input[type="submit"].button {
+		overflow: visible;
+	}
+
 	@-moz-keyframes fall {
 		0% {
 			top: -10px;
