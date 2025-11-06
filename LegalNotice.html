@@ -1,0 +1,110 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juridische Kennisgeving - Raimonvibe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Juridische Kennisgeving</h1>
+        <p><strong>raimonvibe</strong><br>
+        Laatst bijgewerkt: oktober 2024</p>
+        
+        <p>Welkom bij raimonvibe. Door onze website te gebruiken, gaat u akkoord met de voorwaarden zoals uiteengezet in deze juridische kennisgeving. Lees deze juridische kennisgeving zorgvuldig door voordat u onze website gebruikt. Als u vragen heeft, neem dan contact met ons op.</p>
+        
+        <h2>Juridische Kennisgeving</h2>
+        <p>De informatie op deze website is uitsluitend bedoeld voor algemene informatiedoeleinden. Hoewel we ernaar streven ervoor te zorgen dat de informatie op deze website nauwkeurig en up-to-date is, geven we geen enkele garantie, expliciet of impliciet, met betrekking tot de volledigheid, nauwkeurigheid, betrouwbaarheid, geschiktheid of beschikbaarheid van de website of de informatie, producten, diensten of gerelateerde afbeeldingen op de website voor welk doel dan ook. Het vertrouwen dat u stelt in deze informatie is daarom volledig op eigen risico.</p>
+        
+        <p>Raimonvibe kan niet aansprakelijk worden gesteld voor enig verlies of schade, inclusief maar niet beperkt tot directe of indirecte, gevolg- of incidentele schade, die voortvloeit uit of verband houdt met het gebruik van deze website.</p>
+        
+        <p>Deze website kan links bevatten naar websites van derden die niet onder de controle van Raimonvibe staan. Wij hebben geen controle over de aard, inhoud en beschikbaarheid van die sites, en de opname van links impliceert niet noodzakelijkerwijs een goedkeuring of aanbeveling van de standpunten die daarop worden geuit.</p>
+        
+        <p>We streven ernaar om deze website soepel te laten functioneren. Raimonvibe neemt echter geen verantwoordelijkheid voor, en is niet aansprakelijk voor, het tijdelijk niet beschikbaar zijn van de website als gevolg van technische problemen buiten onze controle.</p>
+        
+        <h2>Contacteer ons</h2>
+        <p>Email: <a href="mailto:info@raimonvibe.com">info@raimonvibe.com</a><br>
+        Website: <a href="https://raimonvibe.com">https://raimonvibe.com</a></p>
+        
+        <p>Door onze website te gebruiken, accepteert u onze gebruiksvoorwaarden en privacybeleid. De informatie op deze website is bedoeld voor algemene informatiedoeleinden en is niet bedoeld als juridisch advies. Wij garanderen niet de nauwkeurigheid, volledigheid of betrouwbaarheid van enige informatie op deze website en zijn niet aansprakelijk voor eventuele fouten of weglatingen.</p>
+        
+        <div class="footer">
+            <p>Copyright © 2025 raimonvibe. Alle rechten voorbehouden.</p>
+        </div>
+    </div>
+</body>
+</html>

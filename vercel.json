@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*.html",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "raimonvibe.nl"
+        }
+      ],
+      "destination": "https://www.raimonvibe.nl/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/:path*.html"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
