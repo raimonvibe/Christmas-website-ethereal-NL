@@ -3779,6 +3779,10 @@ input, select, textarea {
 		overflow: visible;
 	}
 
+	.button.icon.circle {
+		overflow: visible !important;
+	}
+
 	@-moz-keyframes fall {
 		0% {
 			top: -10px;
