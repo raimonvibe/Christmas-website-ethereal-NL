@@ -3771,6 +3771,14 @@ input, select, textarea {
 		overflow: visible;
 	}
 
+	.actions li {
+		overflow: visible;
+	}
+
+	ul.actions {
+		overflow: visible;
+	}
+
 	@-moz-keyframes fall {
 		0% {
 			top: -10px;

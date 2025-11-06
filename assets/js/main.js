@@ -806,18 +806,19 @@
 				});
 			});
 
-			// Add to submit button specifically
+			// Add to submit button parent (input elements can't have children)
 			$('input[type="submit"]').each(function() {
 				var $submit = $(this);
+				var $parent = $submit.parent();
 
-				// Make position relative if not already positioned
-				if ($submit.css('position') === 'static') {
-					$submit.css('position', 'relative');
+				// Make parent position relative if not already positioned
+				if ($parent.css('position') === 'static') {
+					$parent.css('position', 'relative');
 				}
 
-				// Add mouseenter event for snowflakes
+				// Add mouseenter event for snowflakes on the parent
 				$submit.on('mouseenter', function() {
-					createMultipleSnowflakes(this);
+					createMultipleSnowflakes($parent[0]);
 				});
 			});
 
