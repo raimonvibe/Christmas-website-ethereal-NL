@@ -50,14 +50,15 @@
 /* Simple SVG Christmas Lights Animation */
 
 
-#Christmas_Lights {
-  object-position: center;
-  height: 40%;
-  margin-top: 10px;
-  /* margin-bottom: 30px; */
-  position: absolute;
-  width: 100%;
-  z-index: 99999;
+#christmas-lights {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	z-index: 9999;
+	pointer-events: none;
+	overflow: hidden;
 }
 
 .light_cord {
