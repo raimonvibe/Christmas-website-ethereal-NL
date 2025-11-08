@@ -54,6 +54,7 @@
   object-position: center;
   height: 40%;
   width: 100%;
+  position: absolute;
   z-index: 99999;
 }
 
