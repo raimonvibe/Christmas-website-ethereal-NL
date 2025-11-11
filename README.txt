@@ -1,382 +1,95 @@
-Ethereal by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Here’s a README you can use for your second repository. Feel free to adjust wording, add badges, or tweak sections as needed.
 
+---
 
-This is Ethereal, my latest, greatest, and quite possibly most unique template for HTML5 UP.
-Since releasing Parallelism 3-4 years ago (!!!), I've been dying to do another side-scrolling
-template with more in the way of flexibility/customization potential. The result is this template,
-Ethereal, which combines a robust side-scrolling framework of my own creation (with various
-"scroll-assist" features like drag/momentum scrolling, keyboard shortcuts, etc.) with a unique
-look and feel, a lightbox gallery, tons of customization options, and, of course, full
-responsiveness. Hope you dig it :)
+# 🎄 Christmas Website – Ethereal NL
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+[Live Demo](https://christmas-website-ethereal-nl.vercel.app/)
 
-(* = not included)
+## Overview
 
-AJ
-aj@lkn.io | @ajlkn
+This project is a serene, winter-ethereal themed responsive website built with HTML5, CSS/SCSS and JavaScript, in Dutch (“NL”) locale. It adapts beautifully across desktop, tablet and mobile, offering a calm holiday-vibe experience.
 
+## Features
 
-Instructions:
+* Fully responsive layout – optimised for all screen sizes.
+* Ethereal design with soft colours, subtle animations and holiday imagery.
+* Dutch language content (NL) – ready for the Netherlands audience.
+* Built with SCSS for enhanced maintainability.
+* Minimal, clean JavaScript for subtle interactive elements.
+* Easy to customise (update content, colours, images) to your brand or campaign.
 
-	Overview
-	========
+## Demo
 
-		Browsers deal with side-scrolling pages differently to vertically-oriented ones in
-		that they require elements (or at the very least, the top-most wrapper element) to
-		have a defined (fixed) width. This leads to a number of limitations (eg. the page
-		won't automatically grow/shrink in the same way a vertically-oriented one will), so
-		Ethereal does two things to work around this:
+You can explore the live version here:
+[https://christmas-website-ethereal-nl.vercel.app/](https://christmas-website-ethereal-nl.vercel.app/)
 
-		- The entire page is made up of "panel" elements, each of which can be assigned an
-		  optional "size" modifier (satisfying the fixed width requirement).
+## Getting Started
 
-		- For panels that don't use a size modifier, individual containing elements *inside*
-		  them (eg. a column) can be assigned a "span" modifier to give those a fixed width
-		  instead (also satisfying the fixed width requirement).
+### Prerequisites
 
-		Another fun quirk of side-scrolling pages is how to actually implement horizontal
-		scrolling *without* resorting to using the (usually ugly) horizontal scrollbar.
-		Ethereal does this in FOUR (!) ways:
+* A modern web browser.
+* (Optional) Node.js & npm if tooling or build steps are involved.
 
-		- Dragging: Users can simply click and drag the page left or right to scroll it around.
-		  This works exactly as you'd expect, and even has a nice "post-scroll momentum" effect.
+### Installation
 
-		- Scroll Wheel: Ethereal modifies* the scroll wheel's behavior to translate vertical
-		  scrolling into horizontal scrolling, allowing the user to use either the scroll wheel
-		  or trackpad to scroll the page (the latter of which retains the ability to horziontally
-		  scroll as normal, so nothing changes there).
+1. Clone the repository
 
-		  * Special thanks to @miorel + @pieterv of Facebook for "normalizeWheel()" :)
+   ```bash
+   git clone https://github.com/raimonvibe/Christmas-website-ethereal-NL.git
+   ```
+2. Navigate into the project directory
 
-		- Scroll Zones: Users can hover the mouse cursor on the left or right edges of the page
-		  to automatically scroll in either direction.
+   ```bash
+   cd Christmas-website-ethereal-NL
+   ```
+3. (Optional) If SCSS or other build tools are used, install dependencies:
 
-		- Keyboard Shortcuts: Finally, users can simply use the left/right arrows, page up/down,
-		  home/end, and the spacebar to scroll the page.
+   ```bash
+   npm install
+   ```
+4. Open `index.html` (or the main entry file) in your browser.
+5. For deployment: upload the files to your hosting provider or use a static-site deployer such as Vercel or Netlify.
 
-		Note that any (or all) of these scroll-assist features can be turned off (and in some
-		cases customized). See the top of assets/js/main.js for more information.
+## File Structure
 
+```
+/assets/
+   /images/        ← Ethereal holiday-themed visuals
+index.html         ← Main home page (Dutch)
+about.html         ← Sample page (if included)
+elements.html      ← Page showcasing design elements (if included)
+...
+```
 
-	Span Modifiers
-	==============
+## Customisation Guide
 
-		Span modifiers are simply classes that give elements a fixed width, the size of which
-		is determined by the "unit value" associated with the modifier (eg. "span-3" means
-		"span 3 units"). These sizes are in "rem" units when used inside panels that don't
-		use a size modifier, and in percentage units when used inside panels that do.
+* **Colour palette**: Modify SCSS variables to alter primary, secondary or accent colours.
+* **Images**: Replace files inside `/assets/images/` with your own visuals to match your unique holiday style.
+* **Fonts / Icons**: Edit the `<head>` section in `index.html` to include your chosen font or icon set.
+* **Language**: Since the site is Dutch (“NL”), update content strings accordingly (if you wish to adapt for other locales).
+* **Deploying**: If using Vercel (as in the demo), connect your repository, choose the correct build directory, and deploy — it will handle the rest.
 
-		Ethereal includes span modifiers ranging from 0.25 units ("span-0-25") to 10 units
-		("span-10"). Here's a partial list:
+## Why this project?
 
-		span-0-25     Span 0.25 units.
-		span-0-5      Span 0.5 units.
-		span-0-75     Span 0.75 units.
-		span-1        Span 1 unit.
-		span-1-25     Span 1.25 units.
-		span-1-5      Span 1.5 units.
-		span-1-75     Span 1.75 units.
-		...
-		span-9        Span 9 units.
-		span-9-25     Span 9.25 units.
-		span-9-5      Span 9.5 units.
-		span-9-75     Span 9.75 units.
-		span-10       Span 10 units.
+* Provides a refined, calm holiday-website template tailored for Dutch audiences.
+* Demonstrates modern responsive design techniques (fluid layouts, breakpoints, mobile-first) with a festive twist.
+* Gives you an easy base to launch a seasonal campaign or personal project with minimal setup.
 
+## Contributions
 
-	Major Elements
-	==============
+Contributions are welcome! If you’d like to suggest improvements—such as more page templates, accessibility enhancements, performance optimisations, or multilingual support—submit a pull request or open an issue.
 
-		Most of Ethereal's elements are pretty much what you'd expect, but there are a handful
-		of "major" ones that warrant a bit more explanation:
+## License
 
+This project is provided under [insert the appropriate license here] — you’re free to use it for personal or commercial purposes (please verify the `LICENSE` file in the repo).
 
-		Panel
-		------
+---
 
-			The primary building block of Ethereal.
-
-			HTML
-
-				<section class="panel (size modifier) (color modifier)">
-					<div class="intro (color modifier)">
-						(intro content)
-					</div>
-					<div class="inner (inner modifiers) (color modifier)">
-						(inner content)
-					</div>
-				</section>
+Feel free to let me know if you’d like me to add:
 
-				Note: The entire "intro" child element can be excluded.
-				Note: You can have as many "intro" and "inner" child elements as you like.
-
-			Modifiers
-
-				Size
-
-					small          Use small size.
-					medium         Use medium size.
-					large          Use large size.
-
-				Color
-
-					color0         Use background color 0 (gradient).
-					color1         Use background color 1.
-					color2         Use background color 2.
-					color3         Use background color 3.
-					color4         Use background color 4.
-					color1-alt     Use background color 1 (alt).
-					color2-alt     Use background color 2 (alt).
-					color3-alt     Use background color 3 (alt).
-					color4-alt     Use background color 4 (alt).
-
-				Inner
-
-					columns        Divides child elements into columns.
-					aligned        When used with "columns", aligns content to top of panel.
-					divided        When used with "columns", separates each column with a vertical line.
-
-			Examples
-
-				Here's a very basic example:
-
-					<section class="panel medium color0">
-						<div class="intro">
-							<h2 class="major">Panel</h2>
-							<p>Just a generic panel.</p>
-						</div>
-						<div class="inner">
-							<p>Lorem ipsum dolor sit amet.</p>
-						</div>
-					</section>
-
-				And here's a more advanced example using columns and *no* size modifier:
-
-					<section class="panel color2">
-						<div class="intro">
-							<h2 class="major">Panel</h2>
-							<p>Just a generic panel.</p>
-						</div>
-						<div class="inner columns">
-							<div class="span-4">
-								<p>This column is 4 units wide.</p>
-							</div>
-							<div class="span-3">
-								<p>This column is 3 units wide.</p>
-							</div>
-							<div class="span-2">
-								<p>This column is 2 units wide.</p>
-							</div>
-						</div>
-					</section>
-
-				Note: The "intro" child element already has a fixed width, so a span modifier
-				isn't required.
-
-
-		Panel (Banner)
-		--------------
-
-			The "Banner" variant of a regular panel.
-
-			HTML
-
-				<section class="panel banner (size modifier) (color modifier) (orientation modifier)">
-					<div class="content (color modifier)">
-						(content)
-					</div>
-					<div class="image (image modifiers)" data-position="(image position modifier)">
-						<img src="(image URL)" alt="" />
-					</div>
-				</section>
-
-			Modifiers
-
-				Orientation
-
-					left           Content on the left, image on the right.
-					right          Content on the right, image on the left.
-
-				Image
-
-					filtered       Applies a gradient filter to the image.
-					tinted         Applies a tint filter to the image.
-
-				Image Position (required)
-
-					top left       Position image in the top-left corner.
-					top            Position image along the top edge.
-					top right      Position image in the top-right corner.
-					right          Position image along the right edge.
-					bottom right   Position image in the bottom-right corner.
-					bottom         Position image along the bottom edge.
-					bottom left    Position image in the bottom-left corner.
-					left           Position image along the left edge.
-					center         Position image in the center.
-
-			Example
-
-				<section class="panel banner medium right">
-					<div class="content color0">
-						<h1>Banner</h1>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-					<div class="image" data-position="center">
-						<img src="/path/to/image.jpg" alt="" />
-					</div>
-				</section>
-
-
-		Panel (Spotlight)
-		-----------------
-
-			The "Spotlight" variant of a regular panel.
-
-			HTML
-
-				<section class="panel spotlight (size modifier) (orientation modifier)">
-					<div class="content (span modifier)">
-						(content)
-					</div>
-					<div class="image (image modifiers)" data-position="(image position modifier)">
-						<img src="(image URL)" alt="" />
-					</div>
-				</section>
-
-			Modifiers
-
-				Orientation
-
-					left           Content on the left.
-					right          Content on the right.
-
-				Image
-
-					filtered       Applies a gradient filter to the image.
-					tinted         Applies a tint filter to the image.
-
-				Image Position (required)
-
-					top left       Position image in the top-left corner.
-					top            Position image along the top edge.
-					top right      Position image in the top-right corner.
-					right          Position image along the right edge.
-					bottom right   Position image in the bottom-right corner.
-					bottom         Position image along the bottom edge.
-					bottom left    Position image in the bottom-left corner.
-					left           Position image along the left edge.
-					center         Position image in the center.
-
-			Example
-
-				<section class="panel spotlight large right">
-					<div class="content">
-						<h1>Spotlight</h1>
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-					<div class="image" data-position="center">
-						<img src="/path/to/image.jpg" alt="" />
-					</div>
-				</section>
-
-
-		Gallery
-		-------
-
-			A lightbox-enabled gallery.
-
-			HTML
-
-				<div class="gallery">
-					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-						<img src="(thumbnail image URL)" alt="" />
-					</a>
-					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-						<img src="(thumbnail image URL)" alt="" />
-					</a>
-					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-						<img src="(thumbnail image URL)" alt="" />
-					</a>
-					<div class="group (span modifier)">
-						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-							<img src="(thumbnail image URL)" alt="" />
-						</a>
-						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-							<img src="(thumbnail image URL)" alt="" />
-						</a>
-						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-							<img src="(thumbnail image URL)" alt="" />
-						</a>
-						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
-							<img src="(thumbnail image URL)" alt="" />
-						</a>
-						...
-					</div>
-					...
-				</div>
-
-				Note: The "group" element creates a dual-row group of images. Images inside this group will
-				automatically wrap to the next row when they exceed its width (as defined by its span modifier).
-				You can have as many groups in a gallery as you like.
-
-			Modifiers
-
-				Image
-
-					filtered       Applies a gradient filter to the image.
-					tinted         Applies a tint filter to the image.
-
-				Image Position (required)
-
-					top left       Position image in the top-left corner.
-					top            Position image along the top edge.
-					top right      Position image in the top-right corner.
-					right          Position image along the right edge.
-					bottom right   Position image in the bottom-right corner.
-					bottom         Position image along the bottom edge.
-					bottom left    Position image in the bottom-left corner.
-					left           Position image along the left edge.
-					center         Position image in the center.
-
-			Example
-
-				<div class="gallery">
-					<a href="/images/thumbnails/01.jpg" class="image filtered span-2" data-position="center">
-						<img src="/images/fulls/01.jpg" alt="" />
-					</a>
-					<a href="/images/thumbnails/02.jpg" class="image filtered span-4" data-position="center">
-						<img src="/images/fulls/02.jpg" alt="" />
-					</a>
-					<div class="group span-4">
-						<a href="/images/thumbnails/03.jpg" class="image filtered span-2" data-position="center">
-							<img src="/images/fulls/03.jpg" alt="" />
-						</a>
-						<a href="/images/thumbnails/04.jpg" class="image filtered span-2" data-position="center">
-							<img src="/images/fulls/04.jpg" alt="" />
-						</a>
-						<a href="/images/thumbnails/05.jpg" class="image filtered span-2" data-position="center">
-							<img src="/images/fulls/05.jpg" alt="" />
-						</a>
-						<a href="/images/thumbnails/06.jpg" class="image filtered span-2" data-position="center">
-							<img src="/images/fulls/06.jpg" alt="" />
-						</a>
-					</div>
-				</div>
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		normalizeWheel (@miorel + @pieterv of Facebook)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+* badges (build status, licence, version)
+* a screenshot or preview section
+* accessibility notes, supported browsers list
+* a multi-language version (English + Dutch)
+* or anything else.
