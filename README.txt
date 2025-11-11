@@ -1,4 +1,3 @@
-Here’s a README you can use for your second repository. Feel free to adjust wording, add badges, or tweak sections as needed.
 
 ---
 
