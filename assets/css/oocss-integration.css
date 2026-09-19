@@ -1,0 +1,117 @@
+/* OOCSS Integration CSS for Ethereal Template */
+
+/* Certificate positioning objects */
+.o-certificate-left {
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.o-certificate-right {
+    float: right;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Utility spacing classes */
+.u-spacing {
+    margin: 2rem 0;
+}
+
+.u-spacing-md {
+    margin: 1.5rem 0;
+}
+
+.u-buy-spacing {
+    margin-top: 1rem;
+}
+
+/* Component classes for buttons */
+.c-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+}
+
+.c-btn--primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+.c-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+/* Custom link styling */
+.c-link--custom {
+    color: #667eea;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.c-link--custom:hover {
+    color: #764ba2;
+}
+
+/* Article component styling */
+.c-article {
+    padding: 1rem;
+}
+
+/* Exclusive text styling for certificate names */
+.exclusive-text {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Sellfy text styling for webshop heading */
+.sellfy-text {
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Alignment utilities */
+.u-align {
+    display: block;
+    margin-top: 1rem;
+}
+
+.left-align {
+    text-align: left;
+}
+
+/* Header object styling */
+.o-header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Middle container object */
+.o-middle-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .o-certificate-left,
+    .o-certificate-right {
+        float: none;
+        margin: 0 auto 1rem auto;
+        display: block;
+    }
+    
+    .o-middle-container {
+        padding: 0 1rem;
+    }
+}

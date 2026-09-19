@@ -1,0 +1,26 @@
+{
+  "name": "website-ethereal-nl",
+  "version": "1.0.0",
+  "description": "Ethereal-style responsive website in Dutch (NL)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass assets/sass:assets/css --no-source-map",
+    "watch": "sass assets/sass:assets/css --no-source-map --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raimonvibe/website-ethereal-NL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/raimonvibe/website-ethereal-NL/issues"
+  },
+  "homepage": "https://github.com/raimonvibe/website-ethereal-NL#readme",
+  "devDependencies": {
+    "sass": "1.104.0"
+  }
+}

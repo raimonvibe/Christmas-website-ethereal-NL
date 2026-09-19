@@ -1,0 +1,160 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacyverklaring - Raimonvibe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacyverklaring</h1>
+        <p>Het bedrijf, gevestigd aan Timpaan 1-B, 1628 MT Hoorn, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.</p>
+        
+        <h2>Contactgegevens</h2>
+        <p>Websitenaam: raimonvibe<br>
+        Website URL: <a href="https://raimonvibe.eu">https://raimonvibe.eu</a><br>
+        Naam: Raimon<br>
+        Adres: Timpaan 1-B<br>
+        Postcode en stad: 1628 MT Hoorn<br>
+        E-mailadres: <a href="mailto:info@raimonvibe.com">info@raimonvibe.com</a></p>
+        
+        <h2>Persoonsgegevens die wij verwerken</h2>
+        <p>Raimonvibe neemt uw privacy serieus en is transparant over de persoonsgegevens die wij verwerken. Wanneer u onze website bezoekt of gebruikmaakt van onze diensten, kunnen wij de volgende persoonsgegevens over u verwerken:</p>
+        <ul>
+            <li>Contactgegevens zoals uw e-mailadres, indien u deze vrijwillig aan ons verstrekt bij het invullen van een contactformulier of het aanmelden voor onze nieuwsbrief.</li>
+            <li>Informatie over uw surfgedrag op onze website om onze diensten en uw gebruikerservaring te verbeteren. Dit omvat gegevens die via cookies worden verzameld, zoals bezochte pagina’s, klikgedrag en de duur van uw bezoek.</li>
+        </ul>
+        
+        <h2>Doel en grondslag voor het verwerken van persoonsgegevens</h2>
+        <p>Wij verwerken uw persoonsgegevens voor specifieke doeleinden en op geldige juridische gronden, waaronder:</p>
+        <ul>
+            <li>Om contact met u op te nemen en te reageren op uw verzoeken of vragen, indien u ons hiervoor toestemming heeft gegeven.</li>
+            <li>Voor het analyseren van uw gebruik van onze website met als doel onze website en diensten te verbeteren. Dit doen wij op basis van ons gerechtvaardigd belang om onze dienstverlening continu te optimaliseren.</li>
+            <li>Om te voldoen aan wettelijke verplichtingen, zoals het bijhouden van administratie voor belastingdoeleinden of het reageren op verzoeken van bevoegde autoriteiten.</li>
+        </ul>
+        
+        <h2>Delen van persoonsgegevens met derden</h2>
+        <p>Raimonvibe zal uw persoonsgegevens niet verkopen, delen of openbaar maken aan derden zonder uw toestemming, tenzij dit noodzakelijk is voor de uitvoering van onze overeenkomst met u of om te voldoen aan een wettelijke verplichting. In gevallen waarin wij samenwerken met externe dienstverleners of partners, zorgen wij ervoor dat passende overeenkomsten zijn getroffen om uw privacy te beschermen.</p>
+        
+        <h2>Beveiliging en bewaring van persoonsgegevens</h2>
+        <p>Wij nemen de bescherming van uw persoonsgegevens serieus en nemen passende technische en organisatorische maatregelen om uw gegevens te beschermen tegen onrechtmatige verwerking, verlies, misbruik, ongeoorloofde toegang, openbaarmaking, wijziging of vernietiging. Uw persoonsgegevens worden niet langer bewaard dan strikt noodzakelijk is om de doeleinden te bereiken waarvoor uw gegevens worden verzameld.</p>
+        
+        <h2>Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h2>
+        <p>Onze website en/of dienst heeft niet de intentie gegevens te verzamelen over websitebezoekers die jonger zijn dan 16 jaar, tenzij zij toestemming hebben van hun ouders of voogd. Wij kunnen echter niet controleren of een bezoeker ouder is dan 16 jaar. Wij raden ouders daarom aan betrokken te zijn bij de online activiteiten van hun kinderen om te voorkomen dat gegevens over kinderen worden verzameld zonder ouderlijke toestemming. Als u ervan overtuigd bent dat wij zonder deze toestemming persoonlijke gegevens hebben verzameld over een minderjarige, neem dan contact met ons op via <a href="mailto:info@raimonvibe.com">info@raimonvibe.com</a>, en wij zullen deze informatie verwijderen.</p>
+        
+        <h2>Aanvullende doeleinden voor het verwerken van persoonsgegevens</h2>
+        <p>Het bedrijf verwerkt uw persoonsgegevens voor de volgende aanvullende doeleinden:</p>
+        <ul>
+            <li>Het bedrijf analyseert uw gedrag op de website om de website te verbeteren en het aanbod van producten en diensten af te stemmen op uw voorkeuren.</li>
+            <li>Het bedrijf volgt uw surfgedrag op verschillende websites, waarmee wij onze producten en diensten afstemmen op uw behoeften.</li>
+        </ul>
+        
+        <h2>Geautomatiseerde besluitvorming</h2>
+        <p>Het bedrijf neemt zakelijke beslissingen op basis van geautomatiseerde verwerking over zaken die (aanzienlijke) gevolgen kunnen hebben voor personen. Dit zijn beslissingen die worden genomen door computerprogramma’s of -systemen, zonder dat daar een mens (bijvoorbeeld een medewerker van het bedrijf) bij betrokken is. Het bedrijf gebruikt de volgende computerprogramma’s of -systemen:</p>
+        <ul>
+            <li>Heap Analytics</li>
+            <li>CookieScript</li>
+        </ul>
+        
+        <h2>Cookies, of vergelijkbare technieken, die wij gebruiken</h2>
+        <p>Het bedrijf gebruikt functionele, analytische en trackingcookies. Een cookie is een klein tekstbestand dat bij het eerste bezoek aan deze website wordt opgeslagen in de browser van uw computer, tablet of smartphone. Het bedrijf gebruikt cookies met een puur technische functionaliteit. Deze zorgen ervoor dat de website naar behoren werkt en dat bijvoorbeeld uw voorkeursinstellingen worden onthouden. Deze cookies worden ook gebruikt om de website goed te laten werken en te optimaliseren. Daarnaast plaatsen we cookies die uw surfgedrag bijhouden zodat we op maat gemaakte inhoud en advertenties kunnen aanbieden.</p>
+        <p>Bij uw eerste bezoek aan onze website hebben wij u al geïnformeerd over deze cookies en hebben wij uw toestemming gevraagd voor het plaatsen ervan. U kunt zich afmelden voor cookies door uw internetbrowser zo in te stellen dat deze geen cookies meer opslaat. Daarnaast kunt u ook alle eerder opgeslagen informatie verwijderen via de instellingen van uw browser. Voor meer informatie, bezoek: <a href="https://veiliginternetten.nl/cookies/">https://veiliginternetten.nl/cookies/</a>.</p>
+        <p>Op deze website worden ook cookies geplaatst door derden. Dit zijn bijvoorbeeld adverteerders en/of sociale mediabedrijven. Hieronder een overzicht:</p>
+        <ul>
+            <li><strong>Cookie:</strong> Heap Analytics<br>
+                <strong>Naam:</strong> Heap Analytics<br>
+                <strong>Functie:</strong> Analytische cookie die websitebezoeken meet.</li>
+            <li><strong>Cookie:</strong> CookieScript<br>
+                <strong>Naam:</strong> CookieScript<br>
+                <strong>Functie:</strong> Biedt een cookie pop-upvenster.</li>
+        </ul>
+        
+        <h2>Inzien, aanpassen of verwijderen van gegevens</h2>
+        <p>U heeft het recht om uw persoonsgegevens in te zien, te corrigeren of te verwijderen. Dit kunt u zelf doen via de persoonlijke instellingen van uw account. Daarnaast heeft u het recht om uw eventuele toestemming voor de gegevensverwerking in te trekken of bezwaar te maken tegen de verwerking van uw persoonsgegevens door ons bedrijf, en heeft u het recht op gegevensoverdraagbaarheid. Dat betekent dat u bij ons een verzoek kunt indienen om de persoonsgegevens die wij van u hebben in een computerbestand naar u of een door u genoemde organisatie te sturen.</p>
+        <p>Als u gebruik wilt maken van uw recht op bezwaar en/of uw recht op gegevensoverdraagbaarheid of als u andere vragen/opmerkingen heeft over de gegevensverwerking, stuur dan een specifiek verzoek naar <a href="mailto:info@raimonvibe.com">info@raimonvibe.com</a>.</p>
+        <p>Om er zeker van te zijn dat het verzoek tot inzage door u is gedaan, vragen wij u een kopie van uw identiteitsbewijs mee te sturen met het verzoek. Maak in deze kopie uw pasfoto, MRZ (machine readable zone, de strook met nummers onderaan het paspoort), paspoortnummer en Burgerservicenummer (BSN) zwart. Dit ter bescherming van uw privacy. Het bedrijf zal zo snel mogelijk, maar uiterlijk binnen vier weken, op uw verzoek reageren.</p>
+        <p>Het bedrijf wijst u er ook op dat u de mogelijkheid heeft om een klacht in te dienen bij de nationale toezichthouder, de Autoriteit Persoonsgegevens. Dat kan via de volgende link: <a href="https://autoriteitpersoonsgegevens.nl/">https://autoriteitpersoonsgegevens.nl/</a>.</p>
+        
+        <h2>Hoe wij persoonsgegevens beveiligen</h2>
+        <p>Raimonvibe neemt de bescherming van uw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. Als u het idee heeft dat uw gegevens toch niet goed beveiligd zijn of er aanwijzingen zijn van misbruik, neem dan contact op met onze klantenservice of via <a href="mailto:info@raimonvibe.com">info@raimonvibe.com</a>.</p>
+        
+        <div class="footer">
+            <p>Copyright © 2025 raimonvibe. Alle rechten voorbehouden.</p>
+        </div>
+    </div>
+</body>
+</html>
