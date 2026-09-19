@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/raimonvibe/website-ethereal-NL#readme",
   "devDependencies": {
-    "sass": "1.104.0"
+    "sass": "1.104.1"
   }
 }
